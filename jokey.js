@@ -1,22 +1,52 @@
 const joke = document.querySelector("#joke");
-const refresh = document.querySelector("#refresh");
+const fact = document.querySelector("#fact");
+const joke_refresh = document.querySelector("#joke_refresh");
+const fact_refresh = document.querySelector("#fact_refresh");
 
-async function jokes() {
-  const res = await fetch(
-    "https://hindi-jokes-api.onrender.com/jokes?api_key=b09145cf3062fb13bce60017e846"
-  );
+async function fetch_joke() {
+  const res = await fetch("https://api.api-ninjas.com/v1/dadjokes?limit=1", {
+    headers: {
+      "Content-Type": "application/json",
+      "X-Api-Key": "bB5TWArdQjV+M+o233qkuw==NPOWQpa3LTy7Ww2i",
+    },
+  });
 
   const data = await res.json();
   if (data) {
-    joke.innerHTML = data.jokeContent;
+    joke.innerHTML = data[0].joke;
   } else {
     return null;
   }
-  //   console.log(data.jokeContent);
+  // console.log(data[0].joke);
 }
 
-jokes();
+fetch_joke();
 
-refresh.addEventListener("click", () => {
-  jokes();
+joke_refresh.addEventListener("click", () => {
+  fetch_joke();
+});
+
+const fetch_fact = async () => {
+  const res = await fetch(`https://api.api-ninjas.com/v1/facts?limit=1`, {
+    method: "GET",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Api-Key": "bB5TWArdQjV+M+o233qkuw==NPOWQpa3LTy7Ww2i",
+    },
+  });
+  const data = await res.json();
+  if (data) {
+    fact.innerHTML = data[0].fact;
+  } else {
+    return null;
+  }
+  //
+  console.log(data[0].fact);
+};
+
+fetch_fact();
+
+fact_refresh.addEventListener("click", () => {
+  fetch_fact();
 });

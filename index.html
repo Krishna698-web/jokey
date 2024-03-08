@@ -7,13 +7,24 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Joke for you</h1>
-    <div id="thought">
-      <p id="joke"></p>
+    <div id="joke_section">
+      <h1>Joke for you...</h1>
+      <div id="background">
+        <p id="joke"></p>
+      </div>
+      <button class="refresh" id="joke_refresh">
+        <img src="reload.png" alt="" />
+      </button>
     </div>
-    <button id="refresh">
-      <img src="reload.png" alt="" />
-    </button>
+    <div id="fact_section">
+      <h1>Fact for you...</h1>
+      <div id="background">
+        <p id="fact"></p>
+      </div>
+      <button class="refresh" id="fact_refresh">
+        <img src="reload.png" alt="" />
+      </button>
+    </div>
   </body>
   <script src="jokey.js"></script>
 </html>
