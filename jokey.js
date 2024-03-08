@@ -41,8 +41,7 @@ const fetch_fact = async () => {
   } else {
     return null;
   }
-  //
-  console.log(data[0].fact);
+  // console.log(data[0].fact);
 };
 
 fetch_fact();
